@@ -35,7 +35,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\CONTRIBUTING.md" Link="CONTRIBUTING.md" />
         <None Include="..\README.md" Pack="true" PackagePath="\" />
         <None Include="..\LICENSE" Pack="true" PackagePath="\" />
         <None Include="..\icon.png" Pack="true" PackagePath="\" />

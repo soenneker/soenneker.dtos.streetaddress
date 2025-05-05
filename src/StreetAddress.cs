@@ -6,14 +6,14 @@ namespace Soenneker.Dtos.StreetAddress;
 /// <summary>
 /// A minimal record type for physical addresses, with international support and maximum serialization compatibility
 /// </summary>
-public record StreetAddress
+public sealed record StreetAddress
 {
     /// <summary>
     /// Gets or sets the primary street address.
     /// </summary>
     [JsonPropertyName("street1")]
     [JsonProperty("street1")]
-    public string Street1 { get; set; } = null!;
+    public string? Street1 { get; set; }
 
     /// <summary>
     /// Gets or sets the secondary street address (e.g., apartment or suite number).
@@ -27,7 +27,7 @@ public record StreetAddress
     /// </summary>
     [JsonPropertyName("city")]
     [JsonProperty("city")]
-    public string City { get; set; } = null!;
+    public string? City { get; set; }
 
     /// <summary>
     /// Gets or sets the state or equivalent administrative region of the address.
@@ -55,7 +55,7 @@ public record StreetAddress
     /// </summary>
     [JsonPropertyName("postalCode")]
     [JsonProperty("postalCode")]
-    public string PostalCode { get; set; } = null!;
+    public string? PostalCode { get; set; }
 
     /// <summary>
     /// Gets or sets the country of the address.
