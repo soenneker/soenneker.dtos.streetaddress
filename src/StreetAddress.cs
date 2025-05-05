@@ -4,68 +4,70 @@ using System.Text.Json.Serialization;
 namespace Soenneker.Dtos.StreetAddress;
 
 /// <summary>
-/// A minimal record type for physical addresses, with international support and maximum serialization compatibility
+/// A minimal, serializable record type for physical mailing addresses, 
+/// with support for international formats and compatibility with common APIs.
 /// </summary>
 public sealed record StreetAddress
 {
     /// <summary>
-    /// Gets or sets the primary street address.
+    /// The primary address line (e.g., street address, P.O. box, company name).
     /// </summary>
-    [JsonPropertyName("street1")]
-    [JsonProperty("street1")]
-    public string? Street1 { get; set; }
+    [JsonPropertyName("line1")]
+    [JsonProperty("line1")]
+    public string? Line1 { get; set; }
 
     /// <summary>
-    /// Gets or sets the secondary street address (e.g., apartment or suite number).
+    /// The secondary address line (e.g., apartment, suite, unit, or building).
     /// </summary>
-    [JsonPropertyName("street2")]
-    [JsonProperty("street2")]
-    public string? Street2 { get; set; }
+    [JsonPropertyName("line2")]
+    [JsonProperty("line2")]
+    public string? Line2 { get; set; }
 
     /// <summary>
-    /// Gets or sets the city of the address.
+    /// The city, town, or locality.
     /// </summary>
     [JsonPropertyName("city")]
     [JsonProperty("city")]
     public string? City { get; set; }
 
     /// <summary>
-    /// Gets or sets the state or equivalent administrative region of the address.
+    /// The state, province, or equivalent administrative region.
+    /// Commonly used in countries like the US, Canada, and Australia.
     /// </summary>
     [JsonPropertyName("state")]
     [JsonProperty("state")]
     public string? State { get; set; }
 
     /// <summary>
-    /// Gets or sets the province or equivalent administrative region of the address (used in some countries).
+    /// The province or territory, if distinct from state in your use case (optional, use with care).
     /// </summary>
     [JsonPropertyName("province")]
     [JsonProperty("province")]
     public string? Province { get; set; }
 
     /// <summary>
-    /// Gets or sets the region or equivalent larger administrative area of the address (used in some countries).
+    /// The broader region, district, or administrative area (e.g., prefecture or county).
     /// </summary>
     [JsonPropertyName("region")]
     [JsonProperty("region")]
     public string? Region { get; set; }
 
     /// <summary>
-    /// Gets or sets the postal code of the address.
+    /// The postal or ZIP code.
     /// </summary>
     [JsonPropertyName("postalCode")]
     [JsonProperty("postalCode")]
     public string? PostalCode { get; set; }
 
     /// <summary>
-    /// Gets or sets the country of the address.
+    /// The ISO 3166-1 alpha-2 country code (e.g., "US", "GB", "CA").
     /// </summary>
     [JsonPropertyName("country")]
     [JsonProperty("country")]
     public string? Country { get; set; }
 
     /// <summary>
-    /// Gets or sets any additional information related to the address.
+    /// Optional additional notes or delivery instructions.
     /// </summary>
     [JsonPropertyName("additionalInfo")]
     [JsonProperty("additionalInfo")]
