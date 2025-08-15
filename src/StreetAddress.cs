@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
+using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Dtos.StreetAddress;
 
@@ -7,6 +8,7 @@ namespace Soenneker.Dtos.StreetAddress;
 /// A minimal, serializable record type for physical mailing addresses, 
 /// with support for international formats and compatibility with common APIs.
 /// </summary>
+[PublicOpenApiObject]
 public sealed record StreetAddress
 {
     /// <summary>
