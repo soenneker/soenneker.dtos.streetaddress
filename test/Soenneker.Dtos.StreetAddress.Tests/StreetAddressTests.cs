@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Dtos.StreetAddress.Tests;
 
-[Collection("Collection")]
-public class StreetAddressTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class StreetAddressTests : HostedUnitTest
 {
-    public StreetAddressTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public StreetAddressTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
