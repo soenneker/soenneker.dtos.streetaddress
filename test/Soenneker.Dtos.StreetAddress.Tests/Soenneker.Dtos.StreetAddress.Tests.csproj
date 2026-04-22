@@ -25,10 +25,5 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\Soenneker.Dtos.StreetAddress\Soenneker.Dtos.StreetAddress.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-        <Content Include="testconfig.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
 </Project>
+
