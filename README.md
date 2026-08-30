@@ -5,7 +5,7 @@
 
 # Soenneker.Dtos.StreetAddress
 
-Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+A flexible physical or mailing-address DTO with separate locality and administrative-area fields. It preserves the same camel-case JSON shape with `System.Text.Json` and Newtonsoft.Json.
 
 ## Install
 
@@ -13,20 +13,25 @@ Describes a physical or mailing address using international locality, administra
 dotnet add package Soenneker.Dtos.StreetAddress
 ```
 
-## What you get
+## Usage
 
-- `StreetAddress` — Describes a physical or mailing address using international locality, administrative-area, postal-code, and country fields.
+```csharp
+using Soenneker.Dtos.StreetAddress;
 
-## API at a glance
+var address = new StreetAddress
+{
+    Line1 = "123 Main Street",
+    Line2 = "Suite 400",
+    City = "Chicago",
+    State = "IL",
+    PostalCode = "60601",
+    Country = "US",
+    AdditionalInfo = "Deliver at reception"
+};
+```
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `StreetAddress.Line1` | Primary delivery line, such as a street address, post-office box, or company name. | Primary delivery line, such as a street address, post-office box, or company name. |
-| `StreetAddress.Line2` | Secondary delivery line, such as an apartment, suite, unit, floor, or building. | Secondary delivery line, such as an apartment, suite, unit, floor, or building. |
-| `StreetAddress.City` | City, town, village, or other postal locality. | City, town, village, or other postal locality. |
-| `StreetAddress.State` | State or equivalent first-level administrative subdivision when that label is used by the country. | State or equivalent first-level administrative subdivision when that label is used by the country. |
-| `StreetAddress.Province` | Province or territory when represented separately from `State` by the source or destination system. | Province or territory when represented separately from `State` by the source or destination system. |
-| `StreetAddress.Region` | Region, district, county, prefecture, or other administrative area not represented by state or province. | Region, district, county, prefecture, or other administrative area not represented by state or province. |
-| `StreetAddress.PostalCode` | Postal routing code, such as a ZIP code or postcode, formatted according to the destination country. | Postal routing code, such as a ZIP code or postcode, formatted according to the destination country. |
-| `StreetAddress.Country` | Two-letter ISO 3166-1 alpha-2 country code, such as `US`, `GB`, or `CA`. | Two-letter ISO 3166-1 alpha-2 country code, such as `US`, `GB`, or `CA`. |
-| `StreetAddress.AdditionalInfo` | Additional address context or delivery instructions that do not fit the structured fields. | Additional address context or delivery instructions that do not fit the structured fields. |
+Use `State`, `Province`, and `Region` according to the source or destination system's address schema; the type does not force one international convention. `PostalCode` is a string so formatting and leading zeroes are preserved.
+
+All properties are optional. The DTO does not validate deliverability, normalize casing or abbreviations, geocode the address, or enforce a country-code format. If your API requires particular fields or ISO 3166-1 alpha-2 country codes, validate those rules at its boundary.
+
+Null properties are included or omitted according to your serializer settings.
