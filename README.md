@@ -5,7 +5,7 @@
 
 # Soenneker.Dtos.StreetAddress
 
-A flexible physical or mailing-address DTO with separate locality and administrative-area fields. It preserves the same camel-case JSON shape with `System.Text.Json` and Newtonsoft.Json.
+A flexible physical or mailing-address DTO with separate locality and administrative-area fields. It preserves the same camel-case JSON shape with `System.Text.Json`.
 
 ## Install
 
